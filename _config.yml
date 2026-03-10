@@ -1,0 +1,7 @@
+# GitHub Pages - Píldoras TIC · Grupo Unigas
+# Este archivo desactiva el procesador Jekyll para que los HTML se sirvan directamente
+
+exclude:
+  - README.md
+  - "*.json"
+  - "*.yml"
