@@ -26,10 +26,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       padding: 3rem 2rem;
       position: relative;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    @media (min-height: 700px) {
+      body { justify-content: center; }
     }
     .bg {
       position: fixed; inset: 0; z-index: 0;
