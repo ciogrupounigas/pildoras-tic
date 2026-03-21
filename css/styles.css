@@ -123,6 +123,8 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
+  overflow-y: auto;
 }
 
 /* ── BODY ── */
@@ -133,7 +135,10 @@ html {
   font-size: 15px;
   line-height: 1.6;
   overflow-x: hidden;
+  overflow-y: auto;
   min-height: 100vh;
+  /* Funcionar dentro de iframes de SharePoint/Teams */
+  height: 100%;
   display: grid;
   grid-template-columns: var(--sidebar-width) 1fr;
   grid-template-rows: var(--header-height) 1fr auto;
@@ -1091,10 +1096,12 @@ a.ptic-card {
 @media (max-width: 768px) {
   .ptic-body {
     grid-template-columns: 1fr;
+    grid-template-rows: var(--header-height) 1fr auto;
     grid-template-areas:
       "header"
       "main"
       "footer";
+    min-height: 100%;
   }
 
   .ptic-sidebar {
@@ -1102,7 +1109,7 @@ a.ptic-card {
     left: -100%;
     top: var(--header-height);
     width: 260px;
-    height: calc(100vh - var(--header-height));
+    height: calc(100% - var(--header-height));
     transition: left 0.3s ease;
     z-index: 200;
     box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
@@ -1116,35 +1123,87 @@ a.ptic-card {
     display: block;
   }
 
+  .ptic-header {
+    padding: 0 var(--space-md);
+  }
+
+  .ptic-header__badge {
+    display: none;
+  }
+
   .ptic-hero {
-    padding: var(--space-2xl) var(--space-lg);
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .ptic-hero__title {
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
+  }
+
+  .ptic-hero__desc {
+    font-size: 0.9rem;
   }
 
   .ptic-content {
-    padding: var(--space-lg);
+    padding: var(--space-md);
   }
 
   .ptic-stats {
     flex-wrap: wrap;
-    margin: 0 var(--space-lg);
+    margin: 0 var(--space-md);
   }
 
   .ptic-stats__item {
     flex-basis: 50%;
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .ptic-stats__value {
+    font-size: 1.5rem;
   }
 
   .ptic-breadcrumb {
-    padding: var(--space-md) var(--space-lg);
+    padding: var(--space-sm) var(--space-md);
   }
-}
 
-@media (max-width: 480px) {
-  .ptic-stats__item {
-    flex-basis: 100%;
+  .ptic-card {
+    padding: var(--space-md);
+    clip-path: none;
   }
 
   .ptic-grid {
     grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .ptic-grid--2col,
+  .ptic-grid--3col {
+    grid-template-columns: 1fr;
+  }
+
+  .ptic-feature-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ptic-footer {
+    padding: var(--space-md);
+  }
+
+  .ptic-bg__grid {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .ptic-stats__item {
+    flex-basis: 100%;
+  }
+
+  .ptic-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ptic-hero__eyebrow {
+    font-size: 0.6rem;
   }
 }
 

@@ -137,7 +137,20 @@
       color: rgba(200,190,175,0.25);
       text-transform: uppercase;
     }
-    @media (max-width: 500px) { .cards { grid-template-columns: 1fr; } }
+    html { height: 100%; }
+    @media (max-width: 600px) {
+      body { padding: 1.5rem 1rem; }
+      .logo { font-size: 1.8rem; }
+      .sub { font-size: 0.65rem; letter-spacing: 0.2em; margin-bottom: 2rem; }
+      .cards { grid-template-columns: 1fr; gap: 0.8rem; }
+      .card { padding: 1.2rem 1rem; clip-path: none; }
+      .card-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+      .card-title { font-size: 0.9rem; }
+      .card-desc { font-size: 0.78rem; margin-bottom: 0.5rem; }
+      .card-tag { font-size: 0.55rem; }
+      .grid-bg { display: none; }
+      .footer-txt { font-size: 0.6rem; }
+    }
   </style>
 </head>
 <body>
