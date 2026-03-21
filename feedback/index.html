@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  <meta name="description" content="Píldoras TIC — Feedback | Envía sugerencias y mejora el canal de formación">
+  <title>Píldoras TIC — Feedback | Grupo Unigas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="ptic-body" data-section="feedback">
+
+  <div class="ptic-bg" aria-hidden="true">
+    <div class="ptic-bg__gradient"></div>
+    <div class="ptic-bg__grid"></div>
+  </div>
+  <div class="ptic-overlay" aria-hidden="true"></div>
+
+  <header class="ptic-header" role="banner">
+    <a href="../index.html" class="ptic-header__logo">Píldoras <span>TIC</span></a>
+    <span class="ptic-header__badge">Grupo Unigas</span>
+    <button class="ptic-header__toggle" aria-label="Abrir menú">☰</button>
+  </header>
+
+  <nav class="ptic-sidebar" role="navigation" aria-label="Navegación principal">
+    <div class="ptic-sidebar__title">Secciones</div>
+    <ul class="ptic-sidebar__nav">
+      <li><a href="../general/" class="ptic-sidebar__link" data-nav="general"><span class="ptic-sidebar__icon">📢</span> General</a></li>
+      <li><a href="../feedback/" class="ptic-sidebar__link" data-nav="feedback"><span class="ptic-sidebar__icon">💬</span> Feedback</a></li>
+      <li><a href="../ia-rag/" class="ptic-sidebar__link" data-nav="ia-rag"><span class="ptic-sidebar__icon">🧠</span> IA y RAG</a></li>
+      <li><a href="../microsoft-365/" class="ptic-sidebar__link" data-nav="microsoft-365"><span class="ptic-sidebar__icon">☁️</span> Microsoft 365</a></li>
+      <li><a href="../onboarding/" class="ptic-sidebar__link" data-nav="onboarding"><span class="ptic-sidebar__icon">🚀</span> Onboarding</a></li>
+      <li><a href="../recursos-faq/" class="ptic-sidebar__link" data-nav="recursos-faq"><span class="ptic-sidebar__icon">📚</span> Recursos FAQ</a></li>
+      <li><a href="../seguridad-digital/" class="ptic-sidebar__link" data-nav="seguridad-digital"><span class="ptic-sidebar__icon">🛡️</span> Seguridad Digital</a></li>
+    </ul>
+  </nav>
+
+  <main class="ptic-main" role="main" id="main-content">
+
+    <nav class="ptic-breadcrumb" aria-label="Ruta de navegación">
+      <a href="../index.html">Inicio</a>
+      <span class="ptic-breadcrumb__sep">›</span>
+      <span class="ptic-breadcrumb__current">Feedback</span>
+    </nav>
+
+    <section class="ptic-hero">
+      <div class="ptic-hero__eyebrow">// Tu Opinión Importa</div>
+      <h1 class="ptic-hero__title" id="section-title">Centro de <span>Feedback</span></h1>
+      <p class="ptic-hero__desc">Ayúdanos a mejorar Píldoras TIC. Envía sugerencias, reporta problemas o comparte qué contenidos te gustaría ver en el canal.</p>
+    </section>
+
+    <section class="ptic-content">
+
+      <!-- Canales de Feedback -->
+      <div class="ptic-content__header">
+        <div class="ptic-content__tag">Canales Disponibles</div>
+        <h2 class="ptic-content__title">Cómo Enviar tu <span>Feedback</span></h2>
+      </div>
+
+      <div class="ptic-grid ptic-grid--3col">
+        <div class="ptic-card">
+          <span class="ptic-card__icon">📧</span>
+          <h3 class="ptic-card__title">Correo Electrónico</h3>
+          <p class="ptic-card__desc">Envía un correo con tu sugerencia o reporte al equipo de TI.</p>
+          <div class="ptic-card__chips">
+            <span class="ptic-badge ptic-badge--accent">Email</span>
+          </div>
+        </div>
+
+        <div class="ptic-card">
+          <span class="ptic-card__icon">💬</span>
+          <h3 class="ptic-card__title">Canal de Teams</h3>
+          <p class="ptic-card__desc">Publica directamente en el canal de Formación TIC en Microsoft Teams.</p>
+          <div class="ptic-card__chips">
+            <span class="ptic-badge ptic-badge--info">Teams</span>
+          </div>
+        </div>
+
+        <div class="ptic-card">
+          <span class="ptic-card__icon">📋</span>
+          <h3 class="ptic-card__title">Formulario Rápido</h3>
+          <p class="ptic-card__desc">Completa el formulario a continuación con tu sugerencia o comentario.</p>
+          <div class="ptic-card__chips">
+            <span class="ptic-badge ptic-badge--success">Rápido</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario -->
+      <div class="ptic-content__header" style="margin-top: var(--space-2xl);">
+        <div class="ptic-content__tag">Formulario</div>
+        <h2 class="ptic-content__title">Envía tu <span>Sugerencia</span></h2>
+      </div>
+
+      <div style="max-width: 600px;">
+        <div class="ptic-form-group">
+          <label for="feedback-name">Nombre</label>
+          <input type="text" id="feedback-name" class="ptic-input" placeholder="Tu nombre completo">
+        </div>
+
+        <div class="ptic-form-group">
+          <label for="feedback-type">Tipo de Feedback</label>
+          <select id="feedback-type" class="ptic-select">
+            <option value="">Selecciona una opción</option>
+            <option value="sugerencia">Sugerencia de contenido</option>
+            <option value="mejora">Mejora de plataforma</option>
+            <option value="error">Reporte de error</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="ptic-form-group">
+          <label for="feedback-message">Mensaje</label>
+          <textarea id="feedback-message" class="ptic-textarea" placeholder="Cuéntanos qué podemos mejorar..."></textarea>
+        </div>
+
+        <a href="mailto:ti@grupounigas.com?subject=Feedback Píldoras TIC" class="ptic-btn ptic-btn--primary">Enviar Feedback</a>
+      </div>
+
+      <!-- Encuesta -->
+      <div class="ptic-content__header" style="margin-top: var(--space-3xl);">
+        <div class="ptic-content__tag">Encuesta</div>
+        <h2 class="ptic-content__title">Encuesta de <span>Satisfacción</span></h2>
+      </div>
+
+      <div class="ptic-grid ptic-grid--2col">
+        <div class="ptic-feature-card">
+          <span class="ptic-feature-card__icon">⭐</span>
+          <h3 class="ptic-feature-card__title">Calidad del Contenido</h3>
+          <p class="ptic-feature-card__desc">¿Los contenidos han sido útiles para tu trabajo diario?</p>
+        </div>
+        <div class="ptic-feature-card">
+          <span class="ptic-feature-card__icon">🎯</span>
+          <h3 class="ptic-feature-card__title">Relevancia</h3>
+          <p class="ptic-feature-card__desc">¿Los temas abordados son relevantes para tus funciones?</p>
+        </div>
+        <div class="ptic-feature-card">
+          <span class="ptic-feature-card__icon">📱</span>
+          <h3 class="ptic-feature-card__title">Accesibilidad</h3>
+          <p class="ptic-feature-card__desc">¿Es fácil acceder y navegar por la plataforma?</p>
+        </div>
+        <div class="ptic-feature-card">
+          <span class="ptic-feature-card__icon">💡</span>
+          <h3 class="ptic-feature-card__title">Innovación</h3>
+          <p class="ptic-feature-card__desc">¿Qué nuevos temas te gustaría ver en Píldoras TIC?</p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="ptic-footer" role="contentinfo">
+    <p class="ptic-footer__text">◆ Píldoras TIC · Grupo Unigas · 2025</p>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
