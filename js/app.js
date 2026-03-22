@@ -88,21 +88,28 @@ const PildorasTIC = {
   accordion: {
     init() {
       document.querySelectorAll('.ptic-accordion__trigger').forEach(trigger => {
+        // ARIA: marcar estado inicial
+        trigger.setAttribute('aria-expanded', 'false');
+        const panel = trigger.closest('.ptic-accordion').querySelector('.ptic-accordion__panel');
+        if (panel) panel.setAttribute('role', 'region');
+
         trigger.addEventListener('click', () => {
           const accordion = trigger.closest('.ptic-accordion');
-          const panel = accordion.querySelector('.ptic-accordion__panel');
+          const accPanel = accordion.querySelector('.ptic-accordion__panel');
           const isActive = accordion.classList.contains('active');
 
           // Cerrar todos
           document.querySelectorAll('.ptic-accordion').forEach(acc => {
             acc.classList.remove('active');
             acc.querySelector('.ptic-accordion__panel').style.maxHeight = null;
+            acc.querySelector('.ptic-accordion__trigger').setAttribute('aria-expanded', 'false');
           });
 
           // Abrir el clickeado si estaba cerrado
           if (!isActive) {
             accordion.classList.add('active');
-            panel.style.maxHeight = panel.scrollHeight + 'px';
+            accPanel.style.maxHeight = accPanel.scrollHeight + 'px';
+            trigger.setAttribute('aria-expanded', 'true');
           }
         });
       });
@@ -189,7 +196,7 @@ const PildorasTIC = {
           window.parent.postMessage({ source: 'pildoras-tic', type, data }, '*');
         }
       } catch (e) {
-        // Cross-origin, ignorar
+        console.warn('[PildorasTIC] postToParent bloqueado por cross-origin:', e.message);
       }
     }
   }

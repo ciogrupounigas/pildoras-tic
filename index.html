@@ -7,203 +7,59 @@
   <meta name="description" content="Píldoras TIC — Canal de formación tecnológica de Grupo Unigas">
   <title>Píldoras TIC · Grupo Unigas</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --brand: #be5729;
-      --brand-light: #d4744a;
-      --dark: #0a0b09;
-      --surface: rgba(255,255,255,0.04);
-      --border: rgba(190,87,41,0.15);
-      --text: #f0ebe6;
-      --text-dim: rgba(200,190,175,0.55);
-    }
-    body {
-      background: var(--dark);
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 3rem 2rem;
-      position: relative;
-      overflow-x: hidden;
-      overflow-y: auto;
-    }
-    @media (min-height: 700px) {
-      body { justify-content: center; }
-    }
-    .bg {
-      position: fixed; inset: 0; z-index: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 20% 30%, rgba(190,87,41,0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 60% at 80% 70%, rgba(190,87,41,0.05) 0%, transparent 70%);
-    }
-    .grid-bg {
-      position: fixed; inset: 0; z-index: 0;
-      background-image:
-        linear-gradient(rgba(190,87,41,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(190,87,41,0.04) 1px, transparent 1px);
-      background-size: 60px 60px;
-      animation: gridAnim 25s linear infinite;
-    }
-    @keyframes gridAnim { to { background-position: 60px 60px; } }
-    .content { position: relative; z-index: 10; text-align: center; max-width: 900px; width: 100%; }
-    .logo {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      font-weight: 800;
-      color: #fff;
-      text-shadow: 0 0 30px rgba(190,87,41,0.4);
-      margin-bottom: 0.3rem;
-      letter-spacing: 0.03em;
-    }
-    .logo span { color: var(--brand); }
-    .sub {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      letter-spacing: 0.3em;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      margin-bottom: 3.5rem;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.2rem;
-      margin-bottom: 3rem;
-      text-align: left;
-    }
-    .card {
-      display: block;
-      text-decoration: none;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 1.8rem 1.5rem;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.35s ease;
-      clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
-    }
-    .card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--card-accent, var(--brand)), transparent);
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.4s ease;
-    }
-    .card:hover { border-color: rgba(190,87,41,0.4); transform: translateY(-5px); background: rgba(255,255,255,0.07); }
-    .card:hover::before { transform: scaleX(1); }
-    .card-icon { font-size: 2.2rem; margin-bottom: 0.75rem; display: block; transition: transform 0.3s; }
-    .card:hover .card-icon { transform: scale(1.15) rotate(-5deg); }
-    .card-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 0.5rem;
-    }
-    .card-desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.5; margin-bottom: 0.75rem; }
-    .card-tag {
-      display: inline-block;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      padding: 0.2rem 0.5rem;
-      border: 1px solid;
-      opacity: 0.7;
-    }
-    /* Accent colors per card */
-    .card-general { --card-accent: #be5729; }
-    .card-general .card-tag { border-color: rgba(190,87,41,0.4); color: #be5729; }
-    .card-feedback { --card-accent: #06b6d4; }
-    .card-feedback .card-tag { border-color: rgba(6,182,212,0.4); color: #06b6d4; }
-    .card-ia { --card-accent: #f5c842; }
-    .card-ia .card-tag { border-color: rgba(245,200,66,0.4); color: #f5c842; }
-    .card-m365 { --card-accent: #0078d4; }
-    .card-m365 .card-tag { border-color: rgba(0,120,212,0.4); color: #0078d4; }
-    .card-onboarding { --card-accent: #4ade80; }
-    .card-onboarding .card-tag { border-color: rgba(74,222,128,0.4); color: #4ade80; }
-    .card-faq { --card-accent: #a78bfa; }
-    .card-faq .card-tag { border-color: rgba(167,139,250,0.4); color: #a78bfa; }
-    .card-seguridad { --card-accent: #00f5ff; }
-    .card-seguridad .card-tag { border-color: rgba(0,245,255,0.4); color: #00f5ff; }
-    .footer-txt {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      color: rgba(200,190,175,0.25);
-      text-transform: uppercase;
-    }
-    html { height: 100%; }
-    @media (max-width: 600px) {
-      body { padding: 1.5rem 1rem; }
-      .logo { font-size: 1.8rem; }
-      .sub { font-size: 0.65rem; letter-spacing: 0.2em; margin-bottom: 2rem; }
-      .cards { grid-template-columns: 1fr; gap: 0.8rem; }
-      .card { padding: 1.2rem 1rem; clip-path: none; }
-      .card-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
-      .card-title { font-size: 0.9rem; }
-      .card-desc { font-size: 0.78rem; margin-bottom: 0.5rem; }
-      .card-tag { font-size: 0.55rem; }
-      .grid-bg { display: none; }
-      .footer-txt { font-size: 0.6rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="ptic-landing">
   <div class="bg"></div>
   <div class="grid-bg"></div>
   <div class="content">
-    <div class="logo">Píldoras <span>TIC</span></div>
-    <div class="sub">Formación Tecnológica · Grupo Unigas</div>
-    <div class="cards">
-      <a href="general/" class="card card-general">
-        <span class="card-icon">📢</span>
-        <div class="card-title">General</div>
-        <div class="card-desc">Novedades del canal, accesos rápidos y últimas píldoras publicadas.</div>
-        <span class="card-tag">NOVEDADES</span>
+    <div class="ptic-landing__logo">Píldoras <span>TIC</span></div>
+    <div class="ptic-landing__sub">Formación Tecnológica · Grupo Unigas</div>
+    <div class="ptic-landing__cards">
+      <a href="general/" class="ptic-landing__card ptic-landing__card--general">
+        <span class="ptic-landing__card-icon" aria-hidden="true">📢</span>
+        <div class="ptic-landing__card-title">General</div>
+        <div class="ptic-landing__card-desc">Novedades del canal, accesos rápidos y últimas píldoras publicadas.</div>
+        <span class="ptic-landing__card-tag">NOVEDADES</span>
       </a>
-      <a href="seguridad-digital/" class="card card-seguridad">
-        <span class="card-icon">🛡️</span>
-        <div class="card-title">Seguridad Digital</div>
-        <div class="card-desc">Buenas prácticas, alertas de phishing y política de contraseñas.</div>
-        <span class="card-tag">6 MÓDULOS · CIBERSEGURIDAD</span>
+      <a href="seguridad-digital/" class="ptic-landing__card ptic-landing__card--seguridad">
+        <span class="ptic-landing__card-icon" aria-hidden="true">🛡️</span>
+        <div class="ptic-landing__card-title">Seguridad Digital</div>
+        <div class="ptic-landing__card-desc">Buenas prácticas, alertas de phishing y política de contraseñas.</div>
+        <span class="ptic-landing__card-tag">6 MÓDULOS · CIBERSEGURIDAD</span>
       </a>
-      <a href="ia-rag/" class="card card-ia">
-        <span class="card-icon">🧠</span>
-        <div class="card-title">IA y RAG</div>
-        <div class="card-desc">IA generativa, RAG, Copilot y casos de uso para el negocio.</div>
-        <span class="card-tag">8 MÓDULOS · COPILOT</span>
+      <a href="ia-rag/" class="ptic-landing__card ptic-landing__card--ia">
+        <span class="ptic-landing__card-icon" aria-hidden="true">🧠</span>
+        <div class="ptic-landing__card-title">IA y RAG</div>
+        <div class="ptic-landing__card-desc">IA generativa, RAG, Copilot y casos de uso para el negocio.</div>
+        <span class="ptic-landing__card-tag">8 MÓDULOS · COPILOT</span>
       </a>
-      <a href="microsoft-365/" class="card card-m365">
-        <span class="card-icon">☁️</span>
-        <div class="card-title">Microsoft 365</div>
-        <div class="card-desc">Tips de Copilot, guías de Teams, SharePoint y atajos útiles.</div>
-        <span class="card-tag">12 GUÍAS · M365</span>
+      <a href="microsoft-365/" class="ptic-landing__card ptic-landing__card--m365">
+        <span class="ptic-landing__card-icon" aria-hidden="true">☁️</span>
+        <div class="ptic-landing__card-title">Microsoft 365</div>
+        <div class="ptic-landing__card-desc">Tips de Copilot, guías de Teams, SharePoint y atajos útiles.</div>
+        <span class="ptic-landing__card-tag">12 GUÍAS · M365</span>
       </a>
-      <a href="onboarding/" class="card card-onboarding">
-        <span class="card-icon">🚀</span>
-        <div class="card-title">Onboarding</div>
-        <div class="card-desc">Checklist de ingreso, acceso a sistemas y contactos clave de TI.</div>
-        <span class="card-tag">5 PASOS · NUEVOS INGRESOS</span>
+      <a href="onboarding/" class="ptic-landing__card ptic-landing__card--onboarding">
+        <span class="ptic-landing__card-icon" aria-hidden="true">🚀</span>
+        <div class="ptic-landing__card-title">Onboarding</div>
+        <div class="ptic-landing__card-desc">Checklist de ingreso, acceso a sistemas y contactos clave de TI.</div>
+        <span class="ptic-landing__card-tag">5 PASOS · NUEVOS INGRESOS</span>
       </a>
-      <a href="recursos-faq/" class="card card-faq">
-        <span class="card-icon">📚</span>
-        <div class="card-title">Recursos FAQ</div>
-        <div class="card-desc">Preguntas frecuentes, documentos de referencia y buscador.</div>
-        <span class="card-tag">FAQ · DOCUMENTOS</span>
+      <a href="recursos-faq/" class="ptic-landing__card ptic-landing__card--faq">
+        <span class="ptic-landing__card-icon" aria-hidden="true">📚</span>
+        <div class="ptic-landing__card-title">Recursos FAQ</div>
+        <div class="ptic-landing__card-desc">Preguntas frecuentes, documentos de referencia y buscador.</div>
+        <span class="ptic-landing__card-tag">FAQ · DOCUMENTOS</span>
       </a>
-      <a href="feedback/" class="card card-feedback">
-        <span class="card-icon">💬</span>
-        <div class="card-title">Feedback</div>
-        <div class="card-desc">Envía sugerencias y completa encuestas de satisfacción.</div>
-        <span class="card-tag">TU OPINIÓN</span>
+      <a href="feedback/" class="ptic-landing__card ptic-landing__card--feedback">
+        <span class="ptic-landing__card-icon" aria-hidden="true">💬</span>
+        <div class="ptic-landing__card-title">Feedback</div>
+        <div class="ptic-landing__card-desc">Envía sugerencias y completa encuestas de satisfacción.</div>
+        <span class="ptic-landing__card-tag">TU OPINIÓN</span>
       </a>
     </div>
-    <div class="footer-txt">◆ Grupo Unigas · Office 365 E5 · Formación Interna</div>
+    <div class="ptic-landing__footer">◆ Grupo Unigas · Office 365 E5 · Formación Interna</div>
   </div>
 </body>
 </html>

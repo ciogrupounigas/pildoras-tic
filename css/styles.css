@@ -1219,3 +1219,259 @@ a.ptic-card {
 .ptic-overlay--active {
   display: block;
 }
+
+/* ── FOCUS INDICATORS (a11y) ── */
+:focus-visible {
+  outline: 2px solid var(--accent, var(--color-brand));
+  outline-offset: 2px;
+}
+
+.ptic-btn:focus-visible {
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px var(--accent-glow, rgba(190, 87, 41, 0.4));
+}
+
+.ptic-sidebar__link:focus-visible {
+  outline-offset: -2px;
+  background: var(--color-surface);
+}
+
+.ptic-accordion__trigger:focus-visible {
+  outline-offset: -2px;
+}
+
+/* ══════════════════════════════════════════════════
+   LANDING PAGE — index.html
+   ══════════════════════════════════════════════════ */
+
+.ptic-landing {
+  background: var(--color-bg, #0a0b09);
+  font-family: var(--font-body, 'Inter', sans-serif);
+  color: var(--color-text, #f0ebe6);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--space-2xl) var(--space-xl);
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+@media (min-height: 700px) {
+  .ptic-landing { justify-content: center; }
+}
+
+.ptic-landing .bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 30%, rgba(190, 87, 41, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 80% 70%, rgba(190, 87, 41, 0.05) 0%, transparent 70%);
+}
+
+.ptic-landing .grid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(190, 87, 41, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(190, 87, 41, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: ptic-gridAnim 25s linear infinite;
+}
+
+.ptic-landing .content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
+}
+
+.ptic-landing__logo {
+  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--color-white, #fff);
+  text-shadow: 0 0 30px var(--color-brand-glow, rgba(190, 87, 41, 0.4));
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.03em;
+}
+
+.ptic-landing__logo span {
+  color: var(--color-brand, #be5729);
+}
+
+.ptic-landing__sub {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  color: var(--color-text-muted, rgba(200, 190, 175, 0.55));
+  text-transform: uppercase;
+  margin-bottom: var(--space-2xl);
+}
+
+.ptic-landing__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: var(--space-2xl);
+  text-align: left;
+}
+
+.ptic-landing__card {
+  display: block;
+  text-decoration: none;
+  background: var(--color-surface, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--color-border, rgba(190, 87, 41, 0.15));
+  padding: 1.8rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+}
+
+.ptic-landing__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--card-accent, var(--color-brand)), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.ptic-landing__card:hover {
+  border-color: var(--color-border-hover, rgba(190, 87, 41, 0.4));
+  transform: translateY(-5px);
+  background: var(--color-surface-hover, rgba(255, 255, 255, 0.07));
+}
+
+.ptic-landing__card:hover::before {
+  transform: scaleX(1);
+}
+
+.ptic-landing__card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.ptic-landing__card:hover .ptic-landing__card-icon {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+.ptic-landing__card-title {
+  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-white, #fff);
+  margin-bottom: 0.5rem;
+}
+
+.ptic-landing__card-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-muted, rgba(200, 190, 175, 0.55));
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+.ptic-landing__card-tag {
+  display: inline-block;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid;
+  opacity: 0.7;
+}
+
+/* Landing card accent colors */
+.ptic-landing__card--general { --card-accent: var(--accent-general, #be5729); }
+.ptic-landing__card--general .ptic-landing__card-tag { border-color: rgba(190, 87, 41, 0.4); color: var(--accent-general, #be5729); }
+
+.ptic-landing__card--feedback { --card-accent: var(--accent-feedback, #06b6d4); }
+.ptic-landing__card--feedback .ptic-landing__card-tag { border-color: rgba(6, 182, 212, 0.4); color: var(--accent-feedback, #06b6d4); }
+
+.ptic-landing__card--ia { --card-accent: var(--accent-ia, #f5c842); }
+.ptic-landing__card--ia .ptic-landing__card-tag { border-color: rgba(245, 200, 66, 0.4); color: var(--accent-ia, #f5c842); }
+
+.ptic-landing__card--m365 { --card-accent: var(--accent-m365, #0078d4); }
+.ptic-landing__card--m365 .ptic-landing__card-tag { border-color: rgba(0, 120, 212, 0.4); color: var(--accent-m365, #0078d4); }
+
+.ptic-landing__card--onboarding { --card-accent: var(--accent-onboarding, #4ade80); }
+.ptic-landing__card--onboarding .ptic-landing__card-tag { border-color: rgba(74, 222, 128, 0.4); color: var(--accent-onboarding, #4ade80); }
+
+.ptic-landing__card--faq { --card-accent: var(--accent-faq, #a78bfa); }
+.ptic-landing__card--faq .ptic-landing__card-tag { border-color: rgba(167, 139, 250, 0.4); color: var(--accent-faq, #a78bfa); }
+
+.ptic-landing__card--seguridad { --card-accent: var(--accent-seguridad, #00f5ff); }
+.ptic-landing__card--seguridad .ptic-landing__card-tag { border-color: rgba(0, 245, 255, 0.4); color: var(--accent-seguridad, #00f5ff); }
+
+.ptic-landing__footer {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: rgba(200, 190, 175, 0.25);
+  text-transform: uppercase;
+}
+
+/* Landing responsive — aligned with main breakpoint */
+@media (max-width: 768px) {
+  .ptic-landing {
+    padding: 1.5rem var(--space-md);
+  }
+
+  .ptic-landing__logo {
+    font-size: 1.8rem;
+  }
+
+  .ptic-landing__sub {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    margin-bottom: var(--space-xl);
+  }
+
+  .ptic-landing__cards {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .ptic-landing__card {
+    padding: 1.2rem 1rem;
+    clip-path: none;
+  }
+
+  .ptic-landing__card-icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .ptic-landing__card-title {
+    font-size: 0.9rem;
+  }
+
+  .ptic-landing__card-desc {
+    font-size: 0.78rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .ptic-landing__card-tag {
+    font-size: 0.55rem;
+  }
+
+  .ptic-landing .grid-bg {
+    display: none;
+  }
+
+  .ptic-landing__footer {
+    font-size: 0.6rem;
+  }
+}
