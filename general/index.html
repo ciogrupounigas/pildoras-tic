@@ -21,20 +21,22 @@
   <header class="ptic-header" role="banner">
     <a href="../index.html" class="ptic-header__logo">Píldoras <span>TIC</span></a>
     <span class="ptic-header__badge">Grupo Unigas</span>
-    <button class="ptic-header__toggle" aria-label="Abrir menú">☰</button>
+    <button class="ptic-header__toggle" aria-label="Abrir menú">
+      <svg class="ptic-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
   </header>
 
   <!-- Sidebar -->
   <nav class="ptic-sidebar" role="navigation" aria-label="Navegación principal">
     <div class="ptic-sidebar__title">Secciones</div>
     <ul class="ptic-sidebar__nav">
-      <li><a href="../general/" class="ptic-sidebar__link" data-nav="general"><span class="ptic-sidebar__icon" aria-hidden="true">📢</span> General</a></li>
-      <li><a href="../feedback/" class="ptic-sidebar__link" data-nav="feedback"><span class="ptic-sidebar__icon" aria-hidden="true">💬</span> Feedback</a></li>
-      <li><a href="../ia-rag/" class="ptic-sidebar__link" data-nav="ia-rag"><span class="ptic-sidebar__icon" aria-hidden="true">🧠</span> IA y RAG</a></li>
-      <li><a href="../microsoft-365/" class="ptic-sidebar__link" data-nav="microsoft-365"><span class="ptic-sidebar__icon" aria-hidden="true">☁️</span> Microsoft 365</a></li>
-      <li><a href="../onboarding/" class="ptic-sidebar__link" data-nav="onboarding"><span class="ptic-sidebar__icon" aria-hidden="true">🚀</span> Onboarding</a></li>
-      <li><a href="../recursos-faq/" class="ptic-sidebar__link" data-nav="recursos-faq"><span class="ptic-sidebar__icon" aria-hidden="true">📚</span> Recursos FAQ</a></li>
-      <li><a href="../seguridad-digital/" class="ptic-sidebar__link" data-nav="seguridad-digital"><span class="ptic-sidebar__icon" aria-hidden="true">🛡️</span> Seguridad Digital</a></li>
+      <li><a href="../general/" class="ptic-sidebar__link" data-nav="general"><span class="ptic-sidebar__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span> General</a></li>
+      <li><a href="../seguridad-digital/" class="ptic-sidebar__link" data-nav="seguridad-digital"><span class="ptic-sidebar__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span> Seguridad Digital</a></li>
+      <li><a href="../ia-rag/" class="ptic-sidebar__link" data-nav="ia-rag"><span class="ptic-sidebar__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M12 3l1.912 5.813a2 2 0 0 0 1.275 1.275L21 12l-5.813 1.912a2 2 0 0 0-1.275 1.275L12 21l-1.912-5.813a2 2 0 0 0-1.275-1.275L3 12l5.813-1.912a2 2 0 0 0 1.275-1.275L12 3z"/></svg></span> IA y RAG</a></li>
+      <li><a href="../microsoft-365/" class="ptic-sidebar__link" data-nav="microsoft-365"><span class="ptic-sidebar__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/></svg></span> Microsoft 365</a></li>
+      <li><a href="../onboarding/" class="ptic-sidebar__link" data-nav="onboarding"><span class="ptic-sidebar__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span> Onboarding</a></li>
+      <li><a href="../recursos-faq/" class="ptic-sidebar__link" data-nav="recursos-faq"><span class="ptic-sidebar__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span> Recursos FAQ</a></li>
+      <li><a href="../feedback/" class="ptic-sidebar__link" data-nav="feedback"><span class="ptic-sidebar__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span> Feedback</a></li>
     </ul>
   </nav>
 
@@ -88,9 +90,9 @@
       </div>
 
       <div class="ptic-grid">
-        <a href="../seguridad-digital/" class="ptic-card">
+        <a href="../seguridad-digital/" class="ptic-card" style="--i:0">
           <div class="ptic-card__number">SEC_01</div>
-          <span class="ptic-card__icon" aria-hidden="true">🛡️</span>
+          <span class="ptic-card__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
           <h3 class="ptic-card__title">Seguridad Digital</h3>
           <p class="ptic-card__desc">Buenas prácticas, alertas de phishing, política de contraseñas y ejemplos de amenazas comunes.</p>
           <div class="ptic-card__chips">
@@ -99,9 +101,9 @@
           </div>
         </a>
 
-        <a href="../ia-rag/" class="ptic-card">
+        <a href="../ia-rag/" class="ptic-card" style="--i:1">
           <div class="ptic-card__number">SEC_02</div>
-          <span class="ptic-card__icon" aria-hidden="true">🧠</span>
+          <span class="ptic-card__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M12 3l1.912 5.813a2 2 0 0 0 1.275 1.275L21 12l-5.813 1.912a2 2 0 0 0-1.275 1.275L12 21l-1.912-5.813a2 2 0 0 0-1.275-1.275L3 12l5.813-1.912a2 2 0 0 0 1.275-1.275L12 3z"/></svg></span>
           <h3 class="ptic-card__title">IA y RAG</h3>
           <p class="ptic-card__desc">Introducción a IA generativa, RAG, casos de uso y glosario básico de inteligencia artificial.</p>
           <div class="ptic-card__chips">
@@ -110,9 +112,9 @@
           </div>
         </a>
 
-        <a href="../microsoft-365/" class="ptic-card">
+        <a href="../microsoft-365/" class="ptic-card" style="--i:2">
           <div class="ptic-card__number">SEC_03</div>
-          <span class="ptic-card__icon" aria-hidden="true">☁️</span>
+          <span class="ptic-card__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/></svg></span>
           <h3 class="ptic-card__title">Microsoft 365</h3>
           <p class="ptic-card__desc">Tips de Copilot, guías de Teams y SharePoint, atajos de teclado útiles para tu día a día.</p>
           <div class="ptic-card__chips">
@@ -121,9 +123,9 @@
           </div>
         </a>
 
-        <a href="../onboarding/" class="ptic-card">
+        <a href="../onboarding/" class="ptic-card" style="--i:3">
           <div class="ptic-card__number">SEC_04</div>
-          <span class="ptic-card__icon" aria-hidden="true">🚀</span>
+          <span class="ptic-card__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span>
           <h3 class="ptic-card__title">Onboarding</h3>
           <p class="ptic-card__desc">Checklist de ingreso, pasos de acceso a sistemas y contactos clave del área de TI.</p>
           <div class="ptic-card__chips">
@@ -131,9 +133,9 @@
           </div>
         </a>
 
-        <a href="../recursos-faq/" class="ptic-card">
+        <a href="../recursos-faq/" class="ptic-card" style="--i:4">
           <div class="ptic-card__number">SEC_05</div>
-          <span class="ptic-card__icon" aria-hidden="true">📚</span>
+          <span class="ptic-card__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
           <h3 class="ptic-card__title">Recursos FAQ</h3>
           <p class="ptic-card__desc">Preguntas frecuentes por categoría, links a documentos y buscador de recursos.</p>
           <div class="ptic-card__chips">
@@ -142,9 +144,9 @@
           </div>
         </a>
 
-        <a href="../feedback/" class="ptic-card">
+        <a href="../feedback/" class="ptic-card" style="--i:5">
           <div class="ptic-card__number">SEC_06</div>
-          <span class="ptic-card__icon" aria-hidden="true">💬</span>
+          <span class="ptic-card__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
           <h3 class="ptic-card__title">Feedback</h3>
           <p class="ptic-card__desc">Envía sugerencias, reporta problemas y completa encuestas de satisfacción del canal.</p>
           <div class="ptic-card__chips">
@@ -157,7 +159,7 @@
   </main>
 
   <footer class="ptic-footer" role="contentinfo">
-    <p class="ptic-footer__text">◆ Píldoras TIC · Grupo Unigas · 2026</p>
+    <p class="ptic-footer__text">Píldoras TIC · Grupo Unigas · 2026</p>
   </footer>
 
   <script src="../js/app.js"></script>

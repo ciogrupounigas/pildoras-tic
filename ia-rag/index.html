@@ -20,19 +20,21 @@
   <header class="ptic-header" role="banner">
     <a href="../index.html" class="ptic-header__logo">Píldoras <span>TIC</span></a>
     <span class="ptic-header__badge">Grupo Unigas</span>
-    <button class="ptic-header__toggle" aria-label="Abrir menú">☰</button>
+    <button class="ptic-header__toggle" aria-label="Abrir menú">
+      <svg class="ptic-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
   </header>
 
   <nav class="ptic-sidebar" role="navigation" aria-label="Navegación principal">
     <div class="ptic-sidebar__title">Secciones</div>
     <ul class="ptic-sidebar__nav">
-      <li><a href="../general/" class="ptic-sidebar__link" data-nav="general"><span class="ptic-sidebar__icon" aria-hidden="true">📢</span> General</a></li>
-      <li><a href="../feedback/" class="ptic-sidebar__link" data-nav="feedback"><span class="ptic-sidebar__icon" aria-hidden="true">💬</span> Feedback</a></li>
-      <li><a href="../ia-rag/" class="ptic-sidebar__link" data-nav="ia-rag"><span class="ptic-sidebar__icon" aria-hidden="true">🧠</span> IA y RAG</a></li>
-      <li><a href="../microsoft-365/" class="ptic-sidebar__link" data-nav="microsoft-365"><span class="ptic-sidebar__icon" aria-hidden="true">☁️</span> Microsoft 365</a></li>
-      <li><a href="../onboarding/" class="ptic-sidebar__link" data-nav="onboarding"><span class="ptic-sidebar__icon" aria-hidden="true">🚀</span> Onboarding</a></li>
-      <li><a href="../recursos-faq/" class="ptic-sidebar__link" data-nav="recursos-faq"><span class="ptic-sidebar__icon" aria-hidden="true">📚</span> Recursos FAQ</a></li>
-      <li><a href="../seguridad-digital/" class="ptic-sidebar__link" data-nav="seguridad-digital"><span class="ptic-sidebar__icon" aria-hidden="true">🛡️</span> Seguridad Digital</a></li>
+      <li><a href="../general/" class="ptic-sidebar__link" data-nav="general"><span class="ptic-sidebar__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span> General</a></li>
+      <li><a href="../seguridad-digital/" class="ptic-sidebar__link" data-nav="seguridad-digital"><span class="ptic-sidebar__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span> Seguridad Digital</a></li>
+      <li><a href="../ia-rag/" class="ptic-sidebar__link" data-nav="ia-rag"><span class="ptic-sidebar__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M12 3l1.912 5.813a2 2 0 0 0 1.275 1.275L21 12l-5.813 1.912a2 2 0 0 0-1.275 1.275L12 21l-1.912-5.813a2 2 0 0 0-1.275-1.275L3 12l5.813-1.912a2 2 0 0 0 1.275-1.275L12 3z"/></svg></span> IA y RAG</a></li>
+      <li><a href="../microsoft-365/" class="ptic-sidebar__link" data-nav="microsoft-365"><span class="ptic-sidebar__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/></svg></span> Microsoft 365</a></li>
+      <li><a href="../onboarding/" class="ptic-sidebar__link" data-nav="onboarding"><span class="ptic-sidebar__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span> Onboarding</a></li>
+      <li><a href="../recursos-faq/" class="ptic-sidebar__link" data-nav="recursos-faq"><span class="ptic-sidebar__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span> Recursos FAQ</a></li>
+      <li><a href="../feedback/" class="ptic-sidebar__link" data-nav="feedback"><span class="ptic-sidebar__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span> Feedback</a></li>
     </ul>
   </nav>
 
@@ -77,7 +79,7 @@
       <div class="ptic-grid">
         <div class="ptic-card">
           <div class="ptic-card__number">MÓDULO_01</div>
-          <span class="ptic-card__icon" aria-hidden="true">🤖</span>
+          <span class="ptic-card__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M12 3l1.912 5.813a2 2 0 0 0 1.275 1.275L21 12l-5.813 1.912a2 2 0 0 0-1.275 1.275L12 21l-1.912-5.813a2 2 0 0 0-1.275-1.275L3 12l5.813-1.912a2 2 0 0 0 1.275-1.275L12 3z"/></svg></span>
           <h3 class="ptic-card__title">Fundamentos de IA Generativa</h3>
           <p class="ptic-card__desc">Qué es un LLM, cómo funciona GPT, Claude y otros modelos. Conceptos de tokens, prompts y temperatura.</p>
           <div class="ptic-card__chips">
@@ -88,7 +90,7 @@
 
         <div class="ptic-card">
           <div class="ptic-card__number">MÓDULO_02</div>
-          <span class="ptic-card__icon" aria-hidden="true">🔍</span>
+          <span class="ptic-card__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span>
           <h3 class="ptic-card__title">RAG: Retrieval-Augmented Generation</h3>
           <p class="ptic-card__desc">Cómo funciona RAG, diferencia entre RAG estructurado y no estructurado, embeddings y vectores.</p>
           <div class="ptic-card__chips">
@@ -99,7 +101,7 @@
 
         <div class="ptic-card">
           <div class="ptic-card__number">MÓDULO_03</div>
-          <span class="ptic-card__icon" aria-hidden="true">✨</span>
+          <span class="ptic-card__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M12 3l1.912 5.813a2 2 0 0 0 1.275 1.275L21 12l-5.813 1.912a2 2 0 0 0-1.275 1.275L12 21l-1.912-5.813a2 2 0 0 0-1.275-1.275L3 12l5.813-1.912a2 2 0 0 0 1.275-1.275L12 3z"/></svg></span>
           <h3 class="ptic-card__title">Microsoft Copilot</h3>
           <p class="ptic-card__desc">Copilot en Word, Excel, PowerPoint, Teams y Outlook. Prompts efectivos y casos de uso prácticos.</p>
           <div class="ptic-card__chips">
@@ -110,7 +112,7 @@
 
         <div class="ptic-card">
           <div class="ptic-card__number">MÓDULO_04</div>
-          <span class="ptic-card__icon" aria-hidden="true">📊</span>
+          <span class="ptic-card__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
           <h3 class="ptic-card__title">Casos de Uso Unigas</h3>
           <p class="ptic-card__desc">Automatización de reportes, análisis de datos con IA, chatbots internos y asistentes de soporte.</p>
           <div class="ptic-card__chips">
@@ -121,7 +123,7 @@
 
         <div class="ptic-card">
           <div class="ptic-card__number">MÓDULO_05</div>
-          <span class="ptic-card__icon" aria-hidden="true">✍️</span>
+          <span class="ptic-card__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M12 3l1.912 5.813a2 2 0 0 0 1.275 1.275L21 12l-5.813 1.912a2 2 0 0 0-1.275 1.275L12 21l-1.912-5.813a2 2 0 0 0-1.275-1.275L3 12l5.813-1.912a2 2 0 0 0 1.275-1.275L12 3z"/></svg></span>
           <h3 class="ptic-card__title">Prompt Engineering</h3>
           <p class="ptic-card__desc">Técnicas avanzadas: chain-of-thought, few-shot, system prompts, y cómo obtener mejores resultados.</p>
           <div class="ptic-card__chips">
@@ -132,7 +134,7 @@
 
         <div class="ptic-card">
           <div class="ptic-card__number">MÓDULO_06</div>
-          <span class="ptic-card__icon" aria-hidden="true">⚖️</span>
+          <span class="ptic-card__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
           <h3 class="ptic-card__title">Ética y Gobernanza de IA</h3>
           <p class="ptic-card__desc">Sesgos algorítmicos, privacidad de datos, uso responsable de IA y políticas corporativas.</p>
           <div class="ptic-card__chips">
@@ -150,32 +152,32 @@
 
       <div class="ptic-feature-grid">
         <div class="ptic-feature-card">
-          <span class="ptic-feature-card__icon" aria-hidden="true">🔤</span>
+          <span class="ptic-feature-card__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M12 3l1.912 5.813a2 2 0 0 0 1.275 1.275L21 12l-5.813 1.912a2 2 0 0 0-1.275 1.275L12 21l-1.912-5.813a2 2 0 0 0-1.275-1.275L3 12l5.813-1.912a2 2 0 0 0 1.275-1.275L12 3z"/></svg></span>
           <h3 class="ptic-feature-card__title">LLM</h3>
           <p class="ptic-feature-card__desc">Large Language Model. Modelo de lenguaje entrenado con grandes volúmenes de texto.</p>
         </div>
         <div class="ptic-feature-card">
-          <span class="ptic-feature-card__icon" aria-hidden="true">📎</span>
+          <span class="ptic-feature-card__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
           <h3 class="ptic-feature-card__title">RAG</h3>
           <p class="ptic-feature-card__desc">Retrieval-Augmented Generation. Combina búsqueda de documentos con generación de texto.</p>
         </div>
         <div class="ptic-feature-card">
-          <span class="ptic-feature-card__icon" aria-hidden="true">🎯</span>
+          <span class="ptic-feature-card__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
           <h3 class="ptic-feature-card__title">Prompt</h3>
           <p class="ptic-feature-card__desc">Instrucción o pregunta que le das a un modelo de IA para obtener una respuesta.</p>
         </div>
         <div class="ptic-feature-card">
-          <span class="ptic-feature-card__icon" aria-hidden="true">🧩</span>
+          <span class="ptic-feature-card__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
           <h3 class="ptic-feature-card__title">Embedding</h3>
           <p class="ptic-feature-card__desc">Representación numérica del significado de un texto para búsqueda semántica.</p>
         </div>
         <div class="ptic-feature-card">
-          <span class="ptic-feature-card__icon" aria-hidden="true">🌡️</span>
+          <span class="ptic-feature-card__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></span>
           <h3 class="ptic-feature-card__title">Temperatura</h3>
           <p class="ptic-feature-card__desc">Parámetro que controla la creatividad vs. precisión en las respuestas del modelo.</p>
         </div>
         <div class="ptic-feature-card">
-          <span class="ptic-feature-card__icon" aria-hidden="true">🪙</span>
+          <span class="ptic-feature-card__icon" aria-hidden="true"><svg class="ptic-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
           <h3 class="ptic-feature-card__title">Token</h3>
           <p class="ptic-feature-card__desc">Unidad mínima de texto procesada por un LLM (palabra o parte de palabra).</p>
         </div>

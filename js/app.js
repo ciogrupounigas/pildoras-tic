@@ -1,11 +1,12 @@
 /* ══════════════════════════════════════════════════
-   PÍLDORAS TIC — App v2.0
+   PÍLDORAS TIC — App v3.0
    Grupo Unigas · Formación Tecnológica
    ══════════════════════════════════════════════════ */
 
 const PildorasTIC = {
 
   init() {
+    this.stagger.init();
     this.navigation.init();
     this.breadcrumb.init();
     this.animations.init();
@@ -14,6 +15,27 @@ const PildorasTIC = {
     this.progress.init();
     this.sidebar.init();
     this.stats.init();
+  },
+
+  /* ── STAGGER INDEX ── */
+  stagger: {
+    init() {
+      const groups = [
+        '.ptic-grid',
+        '.ptic-feature-grid',
+        '.ptic-landing__cards'
+      ];
+      groups.forEach(sel => {
+        document.querySelectorAll(sel).forEach(container => {
+          const cards = container.children;
+          for (let i = 0; i < cards.length; i++) {
+            if (!cards[i].style.getPropertyValue('--i')) {
+              cards[i].style.setProperty('--i', i);
+            }
+          }
+        });
+      });
+    }
   },
 
   /* ── NAVEGACIÓN ── */
