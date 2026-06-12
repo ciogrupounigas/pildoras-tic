@@ -142,6 +142,7 @@
 }
 
 html {
+  font-size: clamp(16px, 1.1vw, 20px); /* escala suave 16→20px entre 1455px y 1920px */
   scroll-behavior: smooth;
   height: 100%;
   overflow-y: auto;
@@ -152,7 +153,7 @@ html {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 0.9375rem; /* 15px en base 16, escala con html */
   line-height: 1.6;
   overflow-x: hidden;
   overflow-y: auto;
@@ -1850,6 +1851,115 @@ a.ptic-card {
   .ptic-landing__footer {
     font-size: 0.58rem;
   }
+}
+
+/* ── LARGE SCREEN — 1400px+ ── */
+@media (min-width: 1400px) {
+  :root {
+    --sidebar-width: 260px;
+    --header-height: 64px;
+    --border-radius: 14px;
+  }
+
+  /* Header */
+  .ptic-header__logo { font-size: 1.2rem; }
+  .ptic-header__badge { font-size: 0.68rem; }
+
+  /* Sidebar */
+  .ptic-sidebar__title { font-size: 0.68rem; }
+  .ptic-sidebar__link { font-size: 0.95rem; padding: 0.7rem var(--space-md); }
+  .ptic-sidebar__icon { width: 36px; height: 36px; }
+  .ptic-sidebar__icon .ptic-icon { width: 18px; height: 18px; }
+
+  /* Hero */
+  .ptic-hero { padding: var(--space-3xl) var(--space-3xl) var(--space-2xl); }
+  .ptic-hero__eyebrow { font-size: 0.8rem; }
+  .ptic-hero__desc { font-size: 1.15rem; max-width: 700px; }
+
+  /* Breadcrumb */
+  .ptic-breadcrumb { font-size: 0.78rem; padding: var(--space-md) var(--space-3xl); }
+
+  /* Stats */
+  .ptic-stats { margin: 0 var(--space-3xl) var(--space-xl); }
+  .ptic-stats__value { font-size: 2.6rem; }
+  .ptic-stats__label { font-size: 0.76rem; }
+
+  /* Content */
+  .ptic-content { padding: var(--space-2xl) var(--space-3xl); }
+  .ptic-content__tag { font-size: 0.76rem; }
+
+  /* Cards */
+  .ptic-card__number { font-size: 0.68rem; }
+  .ptic-card__icon { width: 52px; height: 52px; }
+  .ptic-card__icon .ptic-icon { width: 26px; height: 26px; }
+  .ptic-card__title { font-size: 1.12rem; }
+  .ptic-card__desc { font-size: 0.96rem; }
+
+  /* Badge */
+  .ptic-badge { font-size: 0.68rem; padding: 0.25rem 0.7rem; }
+
+  /* Button */
+  .ptic-btn { font-size: 0.92rem; padding: 0.85rem 2rem; }
+
+  /* Alert */
+  .ptic-alert { font-size: 0.98rem; }
+
+  /* Timeline */
+  .ptic-timeline__label { font-size: 0.72rem; }
+  .ptic-timeline__title { font-size: 1.2rem; }
+  .ptic-timeline__text { font-size: 0.96rem; }
+  .ptic-timeline__dot { width: 54px; height: 54px; }
+  .ptic-timeline__dot .ptic-icon { width: 24px; height: 24px; }
+
+  /* Progress */
+  .ptic-progress__name { font-size: 0.95rem; }
+  .ptic-progress__pct { font-size: 0.9rem; }
+
+  /* Feature cards */
+  .ptic-feature-card__title { font-size: 1rem; }
+  .ptic-feature-card__desc { font-size: 0.9rem; }
+
+  /* Accordion / FAQ */
+  .ptic-accordion__trigger { font-size: 1rem; padding: var(--space-md) var(--space-xl); }
+  .ptic-accordion__content { font-size: 0.96rem; line-height: 1.75; }
+
+  /* Forms */
+  .ptic-form-group label { font-size: 0.95rem; }
+  .ptic-input, .ptic-textarea, .ptic-select { font-size: 0.98rem; padding: 0.85rem 1.1rem; }
+  .ptic-search__input { font-size: 0.98rem; }
+
+  /* Checklist */
+  .ptic-checklist__item { font-size: 0.96rem; }
+
+  /* Terminal */
+  .ptic-terminal__title { font-size: 0.78rem; }
+  .ptic-terminal__body { font-size: 0.88rem; }
+
+  /* Footer */
+  .ptic-footer__text { font-size: 0.72rem; }
+
+  /* Landing */
+  .ptic-landing .content { max-width: 1240px; }
+  .ptic-landing__logo { font-size: clamp(2.8rem, 5vw, 4.5rem); }
+  .ptic-landing__sub { font-size: 0.85rem; letter-spacing: 0.28em; }
+  .ptic-landing__cards { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
+  .ptic-landing__card { padding: 2rem 1.75rem; }
+  .ptic-landing__card-icon { width: 56px; height: 56px; }
+  .ptic-landing__card-icon .ptic-icon { width: 28px; height: 28px; }
+  .ptic-landing__card-title { font-size: 1.1rem; }
+  .ptic-landing__card-desc { font-size: 0.92rem; }
+  .ptic-landing__card-tag { font-size: 0.66rem; }
+  .ptic-landing__footer { font-size: 0.72rem; }
+}
+
+/* ── EXTRA LARGE — 1920px+ ── */
+@media (min-width: 1800px) {
+  .ptic-landing .content { max-width: 1440px; }
+  .ptic-landing__cards { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .ptic-hero { padding: var(--space-3xl) 6rem var(--space-2xl); }
+  .ptic-breadcrumb { padding: var(--space-md) 6rem; }
+  .ptic-stats { margin: 0 6rem var(--space-xl); }
+  .ptic-content { padding: var(--space-2xl) 6rem; }
 }
 
 /* ── SCROLLBAR ── */
