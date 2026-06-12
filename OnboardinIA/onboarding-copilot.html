@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Activación Copilot · Onboarding Ejecutivo de IA</title>
+<style>
+  :root{
+    --ink:#0B1F3A;        /* azul institucional profundo */
+    --ink-2:#16335C;
+    --paper:#F7F5F0;      /* papel cálido */
+    --paper-2:#EFEBE2;
+    --amber:#D98A2B;      /* valor liberado */
+    --amber-soft:#F2C879;
+    --teal:#2C7A7B;       /* adopción / personas */
+    --line:rgba(11,31,58,.14);
+    --muted:#5A6B82;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:clamp(16px,1.1vw,20px)}
+  html,body{height:100%}
+  body{
+    background:var(--ink);
+    color:var(--ink);
+    font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    overflow:hidden;
+  }
+  .stage{position:relative;height:100vh;width:100vw;overflow:hidden}
+  .slide{
+    position:absolute;inset:0;
+    padding:6vh 8vw;
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    background:var(--paper);
+    animation:fade .5s ease;
+  }
+  .slide.active{display:flex}
+  @keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){.slide{animation:none}}
+
+  .eyebrow{
+    font-size:.82rem;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--amber);font-weight:700;margin-bottom:1.2rem;
+    display:flex;align-items:center;gap:.8rem;
+  }
+  .eyebrow::before{content:"";width:34px;height:2px;background:var(--amber)}
+  h1{font-size:clamp(2.2rem,5.2vw,5rem);line-height:1.02;font-weight:800;letter-spacing:-.02em;max-width:18ch}
+  h2{font-size:clamp(1.6rem,3.4vw,3.2rem);line-height:1.06;font-weight:800;letter-spacing:-.015em;margin-bottom:1.6rem;max-width:24ch}
+  .lead{font-size:clamp(1.05rem,1.7vw,1.5rem);color:var(--muted);max-width:54ch;margin-top:1.6rem;line-height:1.5}
+  p{line-height:1.55}
+
+  /* Portada */
+  .cover{background:var(--ink);color:var(--paper)}
+  .cover h1{max-width:20ch}
+  .cover .eyebrow{color:var(--amber-soft)}
+  .cover .eyebrow::before{background:var(--amber-soft)}
+  .cover .lead{color:#B9C4D6}
+  .cover .strike{color:#7B8AA3;text-decoration:line-through;text-decoration-thickness:2px}
+  .cover .pop{color:var(--amber-soft)}
+  .cover-meta{margin-top:auto;display:flex;gap:2.4rem;flex-wrap:wrap;font-size:clamp(.85rem,.95vw,1rem);color:#8FA0BC;border-top:1px solid rgba(255,255,255,.12);padding-top:1.4rem}
+  .cover-meta b{color:var(--paper);font-weight:700;display:block;font-size:clamp(1.4rem,1.8vw,2rem);letter-spacing:-.01em}
+
+  /* Grids */
+  .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:.5rem}
+  .why-grid .cell{background:var(--paper);padding:1.6rem 1.8rem}
+  .why-grid .q{font-weight:800;font-size:clamp(1rem,1.2vw,1.2rem);color:var(--ink);margin-bottom:.5rem}
+  .why-grid .a{color:var(--muted);font-size:clamp(.9rem,1.05vw,1.05rem);line-height:1.5}
+
+  /* Áreas / casos de uso */
+  .areas{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin-top:.5rem}
+  .area{display:grid;grid-template-columns:140px 1fr 96px;align-items:center;gap:1rem;
+    background:#fff;border:1px solid var(--line);border-radius:10px;padding:.85rem 1.1rem}
+  .area .name{font-weight:800;font-size:clamp(.92rem,1vw,1.05rem)}
+  .area .win{font-size:clamp(.85rem,.95vw,1rem);color:var(--muted);line-height:1.35}
+  .area .hrs{text-align:right;font-weight:800;color:var(--amber);font-size:clamp(.95rem,1vw,1.1rem);white-space:nowrap}
+  .area .hrs small{display:block;font-weight:600;color:var(--muted);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+
+  /* Journey 30-60-90 */
+  .journey{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:.5rem}
+  .phase{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.6rem 1.5rem;position:relative;overflow:hidden}
+  .phase::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--amber)}
+  .phase:nth-child(2)::before{background:var(--teal)}
+  .phase:nth-child(3)::before{background:var(--ink)}
+  .phase .d{font-size:clamp(2.4rem,3.2vw,3.6rem);font-weight:800;letter-spacing:-.03em;color:var(--ink)}
+  .phase .t{font-weight:800;margin:.2rem 0 1rem;font-size:clamp(1rem,1.15vw,1.2rem)}
+  .phase ul{list-style:none}
+  .phase li{font-size:clamp(.9rem,1vw,1.05rem);color:var(--muted);padding:.42rem 0 .42rem 1.2rem;position:relative;line-height:1.4;border-top:1px solid var(--line)}
+  .phase li:first-child{border-top:none}
+  .phase li::before{content:"→";position:absolute;left:0;color:var(--amber);font-weight:800}
+
+  /* Métricas */
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:.5rem}
+  .metric{background:#fff;padding:1.5rem 1.6rem}
+  .metric .k{font-size:clamp(.72rem,.85vw,.9rem);letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:800;margin-bottom:.7rem}
+  .metric .m{font-weight:700;font-size:clamp(.92rem,1vw,1.05rem);line-height:1.45;color:var(--ink-2)}
+  .metric .m span{color:var(--amber);font-weight:800}
+
+  /* Accountability slide */
+  .accent-block{background:var(--ink);color:var(--paper)}
+  .accent-block h2{color:var(--paper)}
+  .accent-block .lead{color:#B9C4D6}
+  .pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2rem}
+  .pillar{border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:1.3rem 1.5rem}
+  .pillar b{color:var(--amber-soft);font-size:clamp(1rem,1.1vw,1.15rem);display:block;margin-bottom:.4rem}
+  .pillar p{color:#AEBBD0;font-size:clamp(.9rem,1vw,1.05rem);line-height:1.45}
+
+  /* Cierre */
+  .close{background:var(--amber);color:var(--ink)}
+  .close .eyebrow{color:var(--ink)}
+  .close .eyebrow::before{background:var(--ink)}
+  .close .lead{color:rgba(11,31,58,.78)}
+  .commit{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap}
+  .commit div{background:rgba(11,31,58,.08);border:1px solid rgba(11,31,58,.18);border-radius:10px;padding:1rem 1.4rem;font-weight:700;font-size:clamp(.95rem,1.05vw,1.1rem)}
+
+  /* Nav */
+  .nav{position:fixed;bottom:24px;right:32px;display:flex;align-items:center;gap:14px;z-index:50}
+  .nav button{
+    width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;
+    background:rgba(255,255,255,.16);color:#fff;font-size:1.2rem;
+    display:grid;place-items:center;transition:background .2s,transform .2s;backdrop-filter:blur(6px)
+  }
+  .nav button:hover{background:var(--amber);transform:scale(1.08)}
+  .nav button:focus-visible{outline:3px solid var(--amber-soft);outline-offset:2px}
+  .counter{position:fixed;bottom:30px;left:32px;color:rgba(255,255,255,.55);font-size:.88rem;letter-spacing:.18em;font-weight:700;z-index:50}
+  .slide:not(.cover):not(.accent-block) ~ .nav button{}
+  .progress{position:fixed;top:0;left:0;height:4px;background:var(--amber);z-index:60;transition:width .35s ease}
+  .kbd-hint{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);font-size:.8rem;letter-spacing:.1em;color:rgba(255,255,255,.4);z-index:50}
+
+  @media(max-width:860px){
+    .why-grid,.areas,.journey,.metrics,.pillars{grid-template-columns:1fr !important}
+    .area{grid-template-columns:1fr auto}
+    .area .win{grid-column:1/-1}
+    .slide{padding:5vh 6vw}
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="stage">
+
+  <!-- 1 · PORTADA -->
+  <section class="slide cover active">
+    <div class="eyebrow">Dirección de TIC · Activación de IA</div>
+    <h1>No les entrego <span class="strike">una licencia</span>.<br>Les activo una <span class="pop">ventaja.</span></h1>
+    <p class="lead">M365 Copilot Premium llega a la mesa directiva. No como herramienta de TI, sino como una capacidad estratégica con un compromiso de resultados que ustedes deben evidenciar.</p>
+    <div class="cover-meta">
+      <div><b>12</b>licencias directivas</div>
+      <div><b>10</b>áreas activadas</div>
+      <div><b>90</b>días para demostrar valor</div>
+    </div>
+  </section>
+
+  <!-- 2 · POR QUÉ -->
+  <section class="slide">
+    <div class="eyebrow">La decisión</div>
+    <h2>Seis preguntas antes de tocar el botón</h2>
+    <div class="why-grid">
+      <div class="cell"><div class="q">¿Por qué ahora?</div><div class="a">La ventaja ya no está en tener IA, sino en cuánto antes la integramos al trabajo directivo. El costo de esperar es mes a mes de horas que se siguen perdiendo.</div></div>
+      <div class="cell"><div class="q">¿Por qué IA?</div><div class="a">Cada área aquí gasta tiempo directivo en tareas repetitivas y en convertir datos en decisiones. Eso es exactamente lo que Copilot acelera dentro de las herramientas que ya usamos.</div></div>
+      <div class="cell"><div class="q">¿Qué gana la organización?</div><div class="a">Horas liberadas que vuelven al criterio, no al trámite. Decisiones más rápidas y mejor soportadas en datos, sin sumar headcount.</div></div>
+      <div class="cell"><div class="q">¿Qué gana cada líder?</div><div class="a">Recuperar tiempo propio, llegar a la decisión con el análisis ya hecho, y posicionarse como referente de adopción ante la gerencia.</div></div>
+      <div class="cell"><div class="q">¿Qué riesgo hay si no se adopta?</div><div class="a">Que la licencia quede dormida y la IA se vuelva un gasto sin retorno. Quedarse como el área que “lo tenía y no lo usó”.</div></div>
+      <div class="cell"><div class="q">¿Qué es evidenciar efectividad?</div><div class="a">Mostrar con datos —horas, casos, decisiones— el valor real generado. Fueron seleccionados precisamente porque pueden demostrarlo.</div></div>
+    </div>
+  </section>
+
+  <!-- 3 · QUÉ ES (en negocio) -->
+  <section class="slide">
+    <div class="eyebrow">Sin tecnicismos</div>
+    <h2>Qué es Copilot, en lenguaje de dirección</h2>
+    <p class="lead" style="margin-top:0;max-width:62ch">No es un programa nuevo que hay que aprender. Vive <b style="color:var(--ink)">dentro de Outlook, Teams, Word, Excel y PowerPoint</b>, donde ya trabajan. Le piden cosas en lenguaje normal y responde con el trabajo hecho.</p>
+    <div class="metrics" style="margin-top:2.2rem">
+      <div class="metric"><div class="k">Procesos repetitivos</div><div class="m">Resúmenes de correo y reuniones, borradores de informes y respuestas. <span>Lo rutinario, en minutos.</span></div></div>
+      <div class="metric"><div class="k">Análisis de datos</div><div class="m">Preguntar a una hoja de Excel y obtener tendencias, anomalías y tablas <span>sin construir la fórmula.</span></div></div>
+      <div class="metric"><div class="k">Decisión soportada</div><div class="m">Llegar a la reunión con el análisis listo, para discutir el qué hacer, <span>no el cómo armarlo.</span></div></div>
+    </div>
+  </section>
+
+  <!-- 4 · CASOS POR ÁREA -->
+  <section class="slide">
+    <div class="eyebrow">Quick wins por área</div>
+    <h2>Un primer caso real para cada directivo</h2>
+    <div class="areas">
+      <div class="area"><div class="name">Gerencia</div><div class="win">Resumen ejecutivo diario de correos, actas y avances en un solo tablero.</div><div class="hrs">~6 h<small>mes</small></div></div>
+      <div class="area"><div class="name">Contabilidad</div><div class="win">Cruce y validación de datos en Excel; borrador de notas a estados financieros.</div><div class="hrs">~8 h<small>mes</small></div></div>
+      <div class="area"><div class="name">Compras</div><div class="win">Comparación de cotizaciones y redacción de cuadros comparativos.</div><div class="hrs">~7 h<small>mes</small></div></div>
+      <div class="area"><div class="name">RRHH</div><div class="win">Análisis de clima/rotación y borradores de comunicaciones internas.</div><div class="hrs">~6 h<small>mes</small></div></div>
+      <div class="area"><div class="name">Mantenimiento</div><div class="win">Análisis de órdenes de trabajo y reportes de paradas a partir de datos.</div><div class="hrs">~7 h<small>mes</small></div></div>
+      <div class="area"><div class="name">Archivo</div><div class="win">Clasificación, resumen e indexado de documentos extensos.</div><div class="hrs">~9 h<small>mes</small></div></div>
+      <div class="area"><div class="name">Transportes</div><div class="win">Análisis de rutas, consumos y costos desde planillas operativas.</div><div class="hrs">~6 h<small>mes</small></div></div>
+      <div class="area"><div class="name">Jurídica</div><div class="win">Resumen de contratos y minutas, comparación de versiones de cláusulas.</div><div class="hrs">~8 h<small>mes</small></div></div>
+      <div class="area"><div class="name">Ambiental</div><div class="win">Consolidación de indicadores y borradores de informes a entes de control.</div><div class="hrs">~6 h<small>mes</small></div></div>
+      <div class="area"><div class="name">Calidad</div><div class="win">Análisis de no conformidades y redacción de informes de auditoría.</div><div class="hrs">~7 h<small>mes</small></div></div>
+    </div>
+    <p class="lead" style="font-size:.82rem;margin-top:1.2rem">Cifras de potencial estimado (confianza media). La línea base real se mide en el Día 0 de cada directivo.</p>
+  </section>
+
+  <!-- 5 · JOURNEY 30-60-90 -->
+  <section class="slide">
+    <div class="eyebrow">El recorrido</div>
+    <h2>30 · 60 · 90 días: de la licencia al hábito</h2>
+    <div class="journey">
+      <div class="phase">
+        <div class="d">30</div><div class="t">Activar</div>
+        <ul>
+          <li>Día 0: medir horas actuales en tareas repetitivas</li>
+          <li>Taller práctico de 90 min con el caso de su área</li>
+          <li>Primer quick win ejecutado en su trabajo real</li>
+          <li>Meta: uso 3 veces por semana</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="d">60</div><div class="t">Integrar</div>
+        <ul>
+          <li>El caso se vuelve rutina semanal</li>
+          <li>Segundo caso de uso sobre análisis de datos</li>
+          <li>El directivo enseña el caso a un miembro de su equipo</li>
+          <li>Primer reporte de horas liberadas</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="d">90</div><div class="t">Evidenciar</div>
+        <ul>
+          <li>Caso de valor documentado y presentado al comité</li>
+          <li>Horas liberadas validadas vs. línea base</li>
+          <li>El directivo es patrocinador activo en su área</li>
+          <li>Decisión: escalar a más roles del equipo</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · MODELO DE EFECTIVIDAD -->
+  <section class="slide">
+    <div class="eyebrow">Cómo demostramos valor</div>
+    <h2>El modelo de efectividad: cinco evidencias</h2>
+    <div class="metrics">
+      <div class="metric"><div class="k">Adopción</div><div class="m">% de días activos y nº de usos/semana. <span>Meta: ≥3 usos semanales por directivo.</span></div></div>
+      <div class="metric"><div class="k">Productividad</div><div class="m">Horas liberadas/mes vs. línea base del Día 0. <span>Métrica madre del programa.</span></div></div>
+      <div class="metric"><div class="k">Personas</div><div class="m">Tiempo directivo devuelto a criterio y equipo. <span>≥1 colaborador capacitado por líder.</span></div></div>
+      <div class="metric"><div class="k">Calidad de decisión</div><div class="m">Decisiones soportadas con análisis previo. <span>Ciclos de reporte más cortos.</span></div></div>
+      <div class="metric"><div class="k">Negocio</div><div class="m">Casos de valor con resultado tangible. <span>≥1 caso documentado por área a 90 días.</span></div></div>
+      <div class="metric" style="background:var(--ink);color:var(--paper)"><div class="k" style="color:var(--amber-soft)">Evidencia observable</div><div class="m" style="color:#cdd7e6">Demostración en vivo ante el comité. <span style="color:var(--amber-soft)">Ver, no contar.</span></div></div>
+    </div>
+  </section>
+
+  <!-- 7 · ACCOUNTABILITY -->
+  <section class="slide accent-block">
+    <div class="eyebrow" style="color:var(--amber-soft)">El compromiso</div>
+    <h2>Fueron seleccionados porque pueden demostrar resultados</h2>
+    <p class="lead">Una licencia entregada sin responsabilidad se vuelve un gasto dormido. Por eso este onboarding tiene dueños, ritmo y rendición de cuentas.</p>
+    <div class="pillars">
+      <div class="pillar"><b>Apropiación, no capacitación</b><p>El objetivo no es que sepan que existe Copilot, sino que lo usen en su trabajo real cada semana.</p></div>
+      <div class="pillar"><b>Quick wins visibles</b><p>Resultados rápidos en 30 días que generan credibilidad, sin perder la visión de transformación.</p></div>
+      <div class="pillar"><b>Accountability con datos</b><p>Cada directivo reporta horas liberadas y un caso de valor. El CIO consolida y presenta al comité.</p></div>
+      <div class="pillar"><b>Patrocinio activo</b><p>El éxito se mide también por cuántos de su equipo adoptan la IA gracias a su liderazgo.</p></div>
+    </div>
+  </section>
+
+  <!-- 8 · REPORTE 90 DÍAS -->
+  <section class="slide">
+    <div class="eyebrow">Rendición de cuentas</div>
+    <h2>Así se ve su reporte de los 90 días</h2>
+    <p class="lead" style="margin-top:0;max-width:62ch">Una página, cinco datos. Sin presentaciones largas: evidencia que se pueda verificar.</p>
+    <div class="metrics" style="margin-top:2rem">
+      <div class="metric"><div class="k">1 · Línea base</div><div class="m">Horas/mes en tareas repetitivas medidas el Día 0. <span>El punto de partida.</span></div></div>
+      <div class="metric"><div class="k">2 · Horas liberadas</div><div class="m">Horas/mes recuperadas con Copilot y en qué tareas. <span>La métrica madre.</span></div></div>
+      <div class="metric"><div class="k">3 · Caso de valor</div><div class="m">Un proceso concreto: antes, después y resultado. <span>Con demostración en vivo.</span></div></div>
+      <div class="metric"><div class="k">4 · Adopción del equipo</div><div class="m">Quién de su equipo ya lo usa gracias a usted. <span>Mínimo 1 persona.</span></div></div>
+      <div class="metric"><div class="k">5 · Siguiente apuesta</div><div class="m">El caso que quiere escalar en el siguiente trimestre. <span>De quick win a transformación.</span></div></div>
+      <div class="metric" style="background:var(--ink);color:var(--paper)"><div class="k" style="color:var(--amber-soft)">Cadencia</div><div class="m" style="color:#cdd7e6">Corte a 30, 60 y 90 días. Consolidación: <span style="color:var(--amber-soft)">Dirección de TIC.</span></div></div>
+    </div>
+  </section>
+
+  <!-- 9 · FORMULARIO -->
+  <section class="slide accent-block">
+    <div class="eyebrow" style="color:var(--amber-soft)">Su voz primero</div>
+    <h2>Antes de salir de esta sala: cuéntenos su punto de dolor</h2>
+    <p class="lead">Los quick wins de cada área no los define TIC: los definen ustedes. Respondan este formulario (10 minutos) y su taller del Día 0 se construirá sobre sus tareas más sensibles.</p>
+    <div class="pillars" style="margin-top:1.6rem;grid-template-columns:repeat(3,1fr)">
+      <div class="pillar"><b>A · Adopción</b><p>Su experiencia actual con IA, dónde pasa más horas de trabajo y qué le frena. Define cómo lo acompañamos.</p></div>
+      <div class="pillar"><b>B · Qué automatizar</b><p>Sus tareas repetitivas con pasos fijos: informes, respuestas, consolidaciones. De aquí sale su primer quick win.</p></div>
+      <div class="pillar"><b>C · Qué amerita un agente</b><p>Consultas frecuentes, documentos extensos, información dispersa. De aquí salen los candidatos a agentes de IA de su área.</p></div>
+    </div>
+    <div style="margin-top:2.4rem">
+      <!-- ▼▼ REEMPLAZAR href POR EL LINK REAL DE MICROSOFT FORMS ▼▼ -->
+      <a href="https://forms.office.com/r/SU-LINK-AQUI" target="_blank" rel="noopener"
+         style="display:inline-flex;align-items:center;gap:.7rem;background:var(--amber);color:var(--ink);
+                font-weight:800;font-size:1.05rem;padding:1rem 2rem;border-radius:10px;text-decoration:none;
+                box-shadow:0 6px 24px rgba(217,138,43,.35)">
+        Responder formulario en Microsoft Forms →
+      </a>
+      <p style="margin-top:.9rem;font-size:.8rem;color:#8FA0BC">Plazo: antes de su sesión de Día 0 · Sistema colaborativo M365</p>
+    </div>
+  </section>
+
+  <!-- 10 · CIERRE -->
+  <section class="slide close">
+    <div class="eyebrow">Lo que pido hoy</div>
+    <h2 style="color:var(--ink)">Tres compromisos para arrancar</h2>
+    <p class="lead">La licencia ya esta activa. El valor lo activamos juntos.</p>
+    <div class="commit">
+      <div>1 · Medir su línea base de horas en el Día 0</div>
+      <div>2 · Ejecutar el primer quick win de su área en 30 días</div>
+      <div>3 · Traer un caso de valor con datos a los 90 días</div>
+    </div>
+    <p class="lead" style="margin-top:2.4rem;font-weight:700;color:var(--ink)">¿Quién quiere ser el primer caso de éxito del comité?</p>
+  </section>
+
+</div>
+
+<div class="progress" id="bar"></div>
+<div class="counter" id="counter">01 / 08</div>
+<div class="kbd-hint">← → para navegar</div>
+<div class="nav">
+  <button id="prev" aria-label="Anterior">‹</button>
+  <button id="next" aria-label="Siguiente">›</button>
+</div>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  let i=0;
+  const counter=document.getElementById('counter');
+  const bar=document.getElementById('bar');
+  function pad(n){return String(n).padStart(2,'0')}
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    counter.textContent=pad(i+1)+' / '+pad(slides.length);
+    bar.style.width=((i+1)/slides.length*100)+'%';
+  }
+  document.getElementById('next').onclick=()=>show(i+1);
+  document.getElementById('prev').onclick=()=>show(i-1);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key===' ')show(i+1);
+    if(e.key==='ArrowLeft')show(i-1);
+    if(e.key==='Home')show(0);
+    if(e.key==='End')show(slides.length-1);
+  });
+  show(0);
+</script>
+</body>
+</html>
